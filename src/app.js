@@ -7,7 +7,7 @@ const { request } = require("http")
 
 const app = express()
 
-
+const port = process.env.PORT || 3000
 
 // Define paths for Express config
 const pathdirectory= path.join(__dirname,"../public");
@@ -85,6 +85,6 @@ app.get('*',(req,res)=>{
         error:404
     })
 })
-app.listen(3000,()=>{
-    console.log("server is running on port 3000")
+app.listen(port,()=>{
+    console.log("server is running on port ",port)
 })
