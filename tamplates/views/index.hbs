@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WaetherApp</title>
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+     <div class="flex-box">
+         <h1>मौसम</h1>
+        {{>header}}<!--set up partials-->
+        <p>
+            इस ऐप में आपको नवीनतम मौसम रिपोर्ट मिलेगी|
+        </p>
+        <form>
+            <input placeholder="Location">
+            <button>Search</button>
+        </form>
+        <p id="msg-1"></p>
+        <p id="msg-2"></p>
+     </div>
+     {{>footer}}
+     <script src="/js/app.js"></script>
+</body>
+</html>
