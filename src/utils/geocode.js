@@ -6,7 +6,7 @@ const geocode=(address,callback)=>{
         if(error){
             callback("out of network",undefined);
         }else if(response.body.features.length===0){
-            callback("place is not found",undefined);
+            callback("location not found",undefined);
         }else{
             const data={
                 latitude:response.body.features[0].center[0],

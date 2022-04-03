@@ -55,23 +55,33 @@ app.get("/about",(req,res)=>{
 app.get("/weather",(req,res)=>{
     if(!req.query.address){
         return res.send({
-            error:"Error address not provided"
+            error:"Please provide an address not provided!"
         })
     }else{
             const address = req.query.address
             geocode(address,(error,data)=>{
-                if(error){
-                    return res.send(error)
-                }
-                forcast(data,(error,about_weather)=>{
-                    if(error){
-                        return res.send(error)
-                    }
-                    res.send({
-                        location:address,
-                        weather_report:about_weather
+                if(!error){
+                    forcast(data,(error,Rdata)=>{
+                        if(!error){
+                            res.send({
+                                location:address,
+                                country:Rdata.country,
+                                weather_report:Rdata.condition,
+
+                            })
+                        
+                        }else{
+                            return res.send(error)
+                        }
+                        
                     })
-                })
+                }else{
+                    return res.send({
+                        error:error,
+                        data:data
+                    })
+                }
+                
                     
             })
         
